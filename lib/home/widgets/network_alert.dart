@@ -76,7 +76,7 @@ class _NetworkAlertState extends ConsumerState<NetworkAlert> {
       } else {
         throw StateError('need location permission');
       }
-    } else if (Platform.isLinux) {
+    } else if (Platform.isLinux || Platform.isWindows) {
       wifiName = await info.getWifiName();
     } else {
       throw UnimplementedError('feature not implemented for this os');

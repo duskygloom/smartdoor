@@ -1,0 +1,20 @@
+app_id: 0a4a616d-e42c-4eb8-a677-3c9d73eda38d
+publisher: duskygloom
+publisher_url: https://github.com/duskygloom/smartdoor
+display_name: SmartDoor V1
+create_desktop_icon: false
+# See: https://jrsoftware.org/ishelp/index.php?topic=setup_defaultdirname
+# install_dir_name: "D:\\HELLO-WORLD"
+# This path is relative to the root directory of your project; The format of icon file must be ico, can not be png or others
+setup_icon_file: icons\windows\app_icon.ico
+locales:
+  - en
+# Space-separated list of architecture identifiers the installer is allowed to run on.
+# See: https://jrsoftware.org/ishelp/index.php?topic=setup_architecturesallowed
+# Defaults to `x64compatible` if not specified.
+# architectures_allowed: x64compatible
+
+# Space-separated list of architectures that should enable 64-bit install mode.
+# See: https://jrsoftware.org/ishelp/index.php?topic=setup_architecturesinstallin64bitmode
+# Defaults to `x64compatible` if not specified.
+# architectures_install_in_64bit_mode: x64compatible

@@ -14,3 +14,10 @@ releases:
         package:
           platform: linux
           target: appimage
+
+  - name: windows-build
+    jobs:
+      - name: release-windows
+        package:
+          platform: windows
+          target: exe
