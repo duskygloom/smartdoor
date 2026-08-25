@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:smartdoor/home/api/door_api.dart';
-import 'package:smartdoor/home/providers/timeout_prov.dart';
+import 'package:smartdoor/settings/providers/timeout_prov.dart';
 import 'package:smartdoor/home/providers/wifi_prov.dart';
 
 class RegistrationForm extends StatelessWidget {
@@ -94,7 +94,7 @@ class _SendButtonState extends ConsumerState<_SendButton> {
                   admin: widget.adminCtrl.text,
                   secret: widget.secretCtrl.text,
                   username: widget.userCtrl.text,
-                  timeout: ref.read(timeoutProv),
+                  timeout: ref.read(connTimeoutProv),
                 );
                 if (cookie == '' && context.mounted) {
                   status = 'Could not fetch cookie :<';
@@ -104,7 +104,9 @@ class _SendButtonState extends ConsumerState<_SendButton> {
                   );
                   await storage
                       .write(key: 'cookie', value: cookie)
-                      .timeout(Duration(milliseconds: ref.read(timeoutProv)));
+                      .timeout(
+                        Duration(milliseconds: ref.read(connTimeoutProv)),
+                      );
                   status = 'Registered!';
                 }
               } on TimeoutException {

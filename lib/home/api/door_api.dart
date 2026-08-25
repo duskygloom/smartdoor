@@ -31,13 +31,23 @@ class DoorApi {
     }
   }
 
-  static Future<bool> unlock(String cookie, [int timeout = 2000]) async {
+  static Future<bool> unlock(
+    String cookie, {
+    int connTimeout = 2000,
+    int doorTimeout = 2000,
+  }) async {
     final r = await http
-        .post(Uri.http(deviceIp, '/open'), headers: {'cookie': cookie})
+        .post(
+          Uri.http(deviceIp, '/open', {'duration': doorTimeout.toString()}),
+          headers: {'cookie': cookie},
+        )
         .timeout(
-          Duration(milliseconds: timeout),
+          Duration(milliseconds: connTimeout),
           onTimeout: () {
-            throw TimeoutException('timeout', Duration(milliseconds: timeout));
+            throw TimeoutException(
+              'timeout',
+              Duration(milliseconds: connTimeout),
+            );
           },
         );
     if (r.statusCode != 200) return false;

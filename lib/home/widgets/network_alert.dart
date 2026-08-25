@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:smartdoor/home/providers/timeout_prov.dart';
+import 'package:smartdoor/settings/providers/timeout_prov.dart';
 import 'package:smartdoor/home/providers/wifi_prov.dart';
 
 class NetworkAlert extends ConsumerStatefulWidget {
@@ -28,7 +28,7 @@ class _NetworkAlertState extends ConsumerState<NetworkAlert> {
     resultsListener = connStream.listen((results) async {
       if (results.contains(ConnectivityResult.wifi)) {
         try {
-          wifiName = await fetchWifiName(ref.read(timeoutProv));
+          wifiName = await fetchWifiName(ref.read(connTimeoutProv));
           ref.read(connectedProv.notifier).state =
               wifiName == ref.read(wifiSsidProv);
           errorMessage = null;

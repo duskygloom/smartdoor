@@ -6,7 +6,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 import 'package:smartdoor/home/api/door_api.dart';
-import 'package:smartdoor/home/providers/timeout_prov.dart';
+import 'package:smartdoor/settings/providers/timeout_prov.dart';
 import 'package:smartdoor/home/widgets/big_button.dart';
 import 'package:smartdoor/home/widgets/network_alert.dart';
 
@@ -72,7 +72,11 @@ class _LockButton extends ConsumerWidget {
           if ((cookie == null || cookie.isEmpty) && context.mounted) {
             status = 'Register first!';
           } else {
-            final ok = await DoorApi.unlock(cookie!, ref.read(timeoutProv));
+            final ok = await DoorApi.unlock(
+              cookie!,
+              connTimeout: ref.read(connTimeoutProv),
+              doorTimeout: ref.read(connTimeoutProv),
+            );
             if (ok && context.mounted) {
               status = 'Unlocked!';
             } else if (context.mounted) {
