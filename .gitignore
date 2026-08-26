@@ -50,3 +50,4 @@ app.*.map.json
 dist/
 linux/flutter/generated_*
 windows/flutter/generated_*
+android/build/
