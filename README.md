@@ -1,17 +1,26 @@
-# smartdoor
+# SmartDoor
 
-A new Flutter project.
+## SmartDoorV1
 
-## Getting Started
+This application interacts with the smartdoorV1 door lock system.
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- Registration
+- Simple unlock interface
+- Choose door unlock timeout
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Notes
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Use it in a secure Wi-Fi, the implementation uses http without any encryption in V1.
+
+## Screenshots
+
+- Home page
+  ![home_page.png](screenshots/home_page.png)
+
+- Registration page
+  ![registration_page.png](screenshots/registration_page.png)
+
+- Settings page
+  ![settings_page.png](screenshots/settings_page.png)
