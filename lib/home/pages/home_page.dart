@@ -75,7 +75,7 @@ class _LockButton extends ConsumerWidget {
             final ok = await DoorApi.unlock(
               cookie!,
               connTimeout: ref.read(connTimeoutProv),
-              doorTimeout: ref.read(connTimeoutProv),
+              doorTimeout: ref.read(doorTimeoutProv),
             );
             if (ok && context.mounted) {
               status = 'Unlocked!';
